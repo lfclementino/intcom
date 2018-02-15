@@ -14,8 +14,20 @@ namespace intcom.web.Models
     
     public partial class ACESSO
     {
+        private string _SENHA;
+
         public int ID_LOGIN { get; set; }
-        public string USERNAME{ get; set; }
+        public string USERNAME
+        {
+            get
+            {
+                return Safe.DecryptString(_SENHA);
+            }
+            set
+            {
+                _SENHA = Safe.EncryptString(value);
+            }
+        }
         public string SENHA { get; set; }
         public string ATIVO { get; set; }
         public string PERFIL { get; set; }
