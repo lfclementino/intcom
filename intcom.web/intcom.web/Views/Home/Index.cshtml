@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <div class="container" style="text-align:center">
+            <div class="row" style="margin-top:10px">
+                <h2>Contoso</h2>
+                @if (Session["Nome"] != null)
+                {
+                    <p><h3>Bem vindo ao sistema</h3> <h1>@Session["Nome"].ToString()  @Session["Sobrenome"].ToString()</h1></p>
+                    <p>@Html.ActionLink("Cadastro de Acesso", "Index", "Acesso")</p>
+                    <br />
+                    <p>@Html.ActionLink("Upload de Arquivos", "Upload", "Upload")</p>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
